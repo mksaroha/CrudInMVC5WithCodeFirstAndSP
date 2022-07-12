@@ -1,0 +1,21 @@
+﻿@model CodeFirstWithSP.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+<div>
+    <h4>Employee Details</h4>
+    <hr />
+    <ul>
+        <li>@Model.Name</li>
+        <li>@Model.City</li>
+        <li>@Model.Department.DepartmentName</li>
+    </ul>
+ 
+</div>
+<p>
+    <a href="/Employee/Edit?Id=@Model.Id" class="btn btn-sm btn-success"> Edit</a> |     
+    <a href="/Employee/Index" class="btn btn-primary">Back To List</a>
+</p>

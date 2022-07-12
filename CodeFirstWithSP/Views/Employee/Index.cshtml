@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CodeFirstWithSP.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center;text-decoration:underline;color:indianred">Employees Data</h2>
+
+<p>   
+    <a href="/Employee/Create" class="btn btn-primary">New Employee</a>
+</p>
+<br />
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </th>*@
+        @*i comment this because it not compitable with sql query two data reader will not work at the same time*@ 
+        <th class="text-center">Action</th>
+    </tr>
+@foreach (var emp in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => emp.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => emp.City)
+        </td>
+        @*<td >
+            @Html.DisplayFor(modelItem => emp.Department.DepartmentName)
+        </td>*@     
+        <td>            
+            <a href="/Employee/Edit?Id=@emp.Id" class="btn btn-sm btn-success"> Edit</a> |
+            <a href="/Employee/Details?Id=@emp.Id" class="btn btn-sm btn-primary">Details </a>|
+            <a href="/Employee/DeleteEmployee?Id=@emp.Id" onclick="return confirm('do you want to delete this record !!')" class="btn btn-sm btn-danger"> Deleted</a> 
+        </td>
+    </tr>
+}
+
+</table>
+
+<style>
+    table,td,th {
+        text-align:center
+    } 
+</style>
