@@ -40,14 +40,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Update" class="btn btn-success" />
+                <button type="submit" value="Update" class="btn btn-success"><i class="fa fa-refresh"> Update</i></button>
             </div>
         </div>
     </div>
 }
 
 <div>
-    <a href="/Employee/Index" class="btn btn-primary">Back To List</a>
+    @Html.ActionLink("Back To List", "Index", null, new { @class = "btn btn-primary fa fa-arrow-left" })    
 </div>
 
 @section Scripts {

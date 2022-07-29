@@ -4,18 +4,46 @@
     ViewBag.Title = "Details";
 }
 
-<br />
+<h2>Details</h2>
+
 <div>
-    <h4>Employee Details</h4>
+    <h4>Employee</h4>
     <hr />
-    <ul>
-        <li>@Model.Name</li>
-        <li>@Model.City</li>
-        <li>@Model.Department.DepartmentName</li>
-    </ul>
- 
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.DepartmentName)
+        </dd>
+
+    </dl>
 </div>
 <p>
-    <a href="/Employee/Edit?Id=@Model.Id" class="btn btn-sm btn-success"> Edit</a> |     
-    <a href="/Employee/Index" class="btn btn-primary">Back To List</a>
+    @Html.ActionLink("Edit", "Edit", new { @id = Model.Id }, htmlAttributes: new { @class = "btn btn-success fa fa-pencil" })|
+    @Html.ActionLink("Back To List", "Index", null, new { @class = "btn btn-primary fa fa-arrow-left" })
+
+    @*<a href="/Employee/Edit?Id=@Model.Id" class="btn btn-sm btn-success"> Edit</a> |
+    <a href="/Employee/Index" class="btn btn-primary">Back To List</a> 
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")*@
 </p>

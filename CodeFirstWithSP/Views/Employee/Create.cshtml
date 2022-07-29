@@ -56,14 +56,17 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+                <button type="submit" class="btn btn-success"><i class="fa fa-save"> Save</i></button>
             </div>
         </div>
     </div>   
 }
 
 <div>
-    <a href="/Employee/Index" class="btn btn-primary">Back To List</a>
+    @Html.ActionLink("Back To List", "Index",null,new {@class= "btn btn-primary fa fa-arrow-left" })  
+    @*<a href="/Employee/Index" class="btn btn-primary">Back To List</a>*@
+    @*Here null is object routeValue.There are many overloaded version of ActionLink 
+    Whick accept different number of parameter*@
 </div>
 
 @section Scripts {

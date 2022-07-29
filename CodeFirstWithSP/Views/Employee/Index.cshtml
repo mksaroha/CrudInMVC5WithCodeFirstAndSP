@@ -7,10 +7,12 @@
 <h2 style="text-align:center;text-decoration:underline;color:indianred">Employees Data</h2>
 
 <p>   
-    <a href="/Employee/Create" class="btn btn-primary">New Employee</a>
+    @*<a href="/Employee/Create" class="btn btn-primary fa fa-plus">New Employee</a>*@
+
+    @Html.ActionLink("New Employee","Create",null,new {@class = "btn btn-primary fa fa-plus"})
 </p>
 <br />
-<table class="table table-bordered table-striped table-condensed">
+<table class="table table-bordered table-striped table-condensed table-responsive">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -35,14 +37,18 @@
         @*<td >
             @Html.DisplayFor(modelItem => emp.Department.DepartmentName)
         </td>*@     
-        <td>            
-            <a href="/Employee/Edit?Id=@emp.Id" class="btn btn-sm btn-success"> Edit</a> |
-            <a href="/Employee/Details?Id=@emp.Id" class="btn btn-sm btn-primary">Details </a>|
-            <a href="/Employee/DeleteEmployee?Id=@emp.Id" onclick="return confirm('do you want to delete this record !!')" class="btn btn-sm btn-danger"> Deleted</a> 
+        <td>     
+            @Html.ActionLink("Edit", "Edit", new { @id = emp.Id }, htmlAttributes: new { @class = "btn btn-success fa fa-pencil" })|
+            @Html.ActionLink("Details", "Details", new { @id = emp.Id }, htmlAttributes: new { @class = "btn btn-primary fa fa-info-circle" })|     
+            @Html.ActionLink("Delete", "DeleteEmployee", new { @id = emp.Id}, htmlAttributes:new {@class= "btn btn-danger fa fa-trash", onclick="return confirm('Do you want to delete this record')"}) 
+            @*<a href="/Employee/Edit?Id=@emp.Id" class="btn btn-sm btn-success"> Edit</a> |*@
+            @*<a href="/Employee/Details?Id=@emp.Id" class="btn btn-sm btn-primary">Details </a>|*@
+            @*<a href="/Employee/DeleteEmployee?Id=@emp.Id" onclick="return confirm('do you want to delete this record !!')" class="btn btn-sm btn-danger"> Deleted</a>*@ 
+            @*<a href="@Url.Action("Edit", "Employee", new { id = emp.Id})" class="btn btn-success"><i class="fa fa-pencil"></i>Edit</a>
+            <a onclick="Delete(@emp.Id)" class="btn btn-danger"><i class="fa fa-trash"></i>Delete</a>*@
         </td>
     </tr>
 }
-
 </table>
 
 <style>
@@ -50,3 +56,5 @@
         text-align:center
     } 
 </style>
+
+@*fa fa-pencil --this is fontawesome library included in layout page*@
